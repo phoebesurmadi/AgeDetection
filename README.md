@@ -1,12 +1,26 @@
-# Age Classification using OpenCV and Deep Learning
+# Age Detection using OpenCV and Deep Learning
 
-This repository provides a Python implementation for age classification using OpenCV and deep learning techniques. It utilizes a pre-trained deep neural network to predict the age of a person from facial images.
+This project utilizes OpenCV and deep learning techniques to classify the age of individuals from facial images.
+
+## Overview
+
+Age detection is achieved through a pre-trained deep neural network model that analyzes facial features to predict the age of a person.
+
+## Features
+
+- **Age Classification:** Predict the age of individuals from images.
+- **Python Implementation:** Implemented in Python for ease of use and integration.
+- **Deep Learning:** Utilizes deep neural networks for accurate age prediction.
 
 ## Getting Started
 
+Follow these instructions to get a copy of the project up and running on your local machine.
+
 ### Prerequisites
 
-- Python 3.12.4
+Ensure you have the following installed:
+
+- Python 3.x
 - OpenCV (cv2)
 - NumPy
 
@@ -16,3 +30,9 @@ This repository provides a Python implementation for age classification using Op
    ```bash
    git clone https://github.com/phoebesurmadi/AgeDetection.git
    cd AgeDetection
+   ```
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+
