@@ -20,7 +20,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 Ensure you have the following installed:
 
-- Python 3.x
+- Python 3.12.4
 - OpenCV (cv2)
 - NumPy
 
