@@ -12,6 +12,25 @@ Age detection is achieved through a pre-trained deep neural network model that a
 - **Python Implementation:** Implemented in Python for ease of use and integration.
 - **Deep Learning:** Utilizes deep neural networks for accurate age prediction.
 
+## Dataset
+
+This project uses the UTKFace dataset (Inthewild/part 1) for training and testing the age detection model.
+
+### About UTKFace Dataset
+- **Source**: UTKFace dataset from the University of Tennessee, Knoxville
+- **Contents**: Large-scale face dataset with long age span (range from 0 to 116 years old)
+- **Labels**: Each image is labeled with age, gender, and ethnicity
+- **Format**: Aligned and cropped faces
+- **File Naming**: [age]_[gender]_[race]_[date&time].jpg
+
+### Dataset Location
+The dataset is located in the `data/UTKFace` directory of this project.
+
+### Usage
+The `data_loader.py` script is configured to load and preprocess images from this dataset.
+
+Note: Due to the large size of the dataset, it is not included in this repository. Please download it separately and place it in the appropriate directory.
+
 ## Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
