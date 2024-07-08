@@ -1,24 +1,21 @@
-import cv2
 import numpy as np
-import tensorflow as tf
-from data_loader import preprocess_images
+from tensorflow.keras.models import load_model
+from data_loader import load_dataset
 
-def predict_age(image_path, model_path):
-    # Load model
-    model = tf.keras.models.load_model(model_path)
+def predict_ages(model_path, data_dir):
+    model = load_model(model_path)
+    images, true_ages = load_dataset(data_dir)
 
-    # Load and preprocess image
-    img = cv2.imread(image_path)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    img = cv2.resize(img, (224, 224))
-    img = preprocess_images(np.array([img]))
+    predicted_ages = model.predict(images).flatten() * 110  # Denormalize
+    true_ages = true_ages * 110  # Denormalize
 
-    # Predict age
-    predicted_age = model.predict(img)[0][0]
-    return int(round(predicted_age))
+    for true_age, predicted_age in zip(true_ages[:10], predicted_ages[:10]):
+        print(f"True Age: {true_age:.0f}, Predicted Age: {predicted_age:.2f}")
+
+    mae = np.mean(np.abs(true_ages - predicted_ages))
+    print(f"Mean Absolute Error: {mae:.2f} years")
 
 if __name__ == "__main__":
-    image_path = "../data/test_image.jpg"  # Update this path
-    model_path = "../models/age_model.h5"
-    predicted_age = predict_age(image_path, model_path)
-    print(f"Predicted age: {predicted_age}")
+    model_path = 'best_model.keras'  # Update this path if necessary
+    data_dir = "../AgeDetection/data/UTKFace_subset"  # Update this path if necessary
+    predict_ages(model_path, data_dir)
